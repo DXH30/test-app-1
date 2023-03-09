@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysampleapp-deployment
+  labels:
+    app: mysampleapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mysampleapp
+  template:
+    metadata:
+      labels:
+        app: mysampleapp
+    spec:
+      containers:
+      - name: mysampleapp
+        image: dxh30/mytestapp:latest
+        ports:
+        - containerPort: 80
+---
+
